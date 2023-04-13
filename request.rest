@@ -1,1 +1,12 @@
-get http://localhost:4000/users
+#get http://localhost:4000/login/getAllUsers
+
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "iduser":"98039",
+    "password":"123",
+    "thang":"2023"
+}

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
-const userRouter = require('./routes/users')
+const userRouter = require('./routes/userr')
+const loginRouter = require('./routes/loginr')
 const mdLogs = require('./middleware/logs');
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(mdLogs);
 app.use(express.json());
 
 app.use('/users',userRouter);
+app.use('/login',loginRouter);
 app.get("/",(req,res,next)=>{
     res.send("Hello get..");
 });
