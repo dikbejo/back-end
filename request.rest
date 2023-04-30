@@ -1,5 +1,9 @@
-#get http://localhost:4000/login/getAllUsers
+###
+get http://localhost:4000/
 
+###
+get http://localhost:4000/user/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE1MzI2MjIsImV4cCI6MTY4MTUzNjIyMn0.V25L7PZwXtHjdcM8_WtY06KnWyapUVJu8kwK_WV4pvw
 
 ###
 POST http://localhost:4000/login
@@ -10,3 +14,14 @@ Content-Type: application/json
     "password":"123",
     "thang":"2023"
 }
+
+###
+GET http://localhost:4000/login/getAllUsers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE3MDU1ODMsImV4cCI6MTY4MTcwOTE4M30.Rjn_R0isdkoHRNpSHH6676XsUeyUfURNINr41pDuW_s
+
+###
+GET http://localhost:4000/login/refreshToken
+Content-Type: application/json
+
+###
+DELETE http://localhost:4000/login/logout
