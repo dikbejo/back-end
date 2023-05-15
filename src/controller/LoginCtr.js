@@ -25,18 +25,22 @@ const getAllUsers = async (req, res) => {
 const login = async(req,res) => {
     const {body} = req;
     try {
+        console.log(body);
+        if(!body.iduser) return res.status(400).json({msg: "Gagal Login, isi userid"})
+        if(!body.password) return res.status(400).json({msg: "Gagal Login, isi password"})
+        if(!body.thang || body.thang.length<4) return res.status(400).json({msg: "Gagal Login, isi Tahun Anggaran"})
         const [data] = await model.validateUser(body.iduser,body.password,body.thang);
         if(data.length < 1) return res.status(400).json({msg: "Gagal Login"})
         const iduser = data[0].iduser;
         const nmuser = data[0].nmuser;
         const idusergroup = data[0].idusergroup;
-        const accessToken = jwt.sign({iduser,nmuser,idusergroup},process.env.ACCESS_TOKEN,{expiresIn: '1h'});
-        const refreshToken = jwt.sign({iduser,nmuser,idusergroup},process.env.REFRESH_TOKEN,{expiresIn: '1d'});
+        const accessToken = jwt.sign({iduser,nmuser,idusergroup},process.env.ACCESS_TOKEN_SECRET_KEY,{expiresIn: '20s'});
+        const refreshToken = jwt.sign({iduser,nmuser,idusergroup},process.env.REFRESH_TOKEN_SECRET_KEY,{expiresIn: '1d'});
         await model.updateRefreshToken(body.iduser,refreshToken);
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             maxAge: 24 * 60 * 60 * 1000,
-            secure: false
+            // secure: false
         })
         
         // res.json({
@@ -58,6 +62,7 @@ const login = async(req,res) => {
 const refreshToken = async(req,res) =>{
     try {
         const refreshToken = req.cookies.refreshToken;
+        // console.log('dari refreshtoken, req.cookies : ' + json(req.cookies));
         if (!refreshToken) return res.sendStatus(401);
         const [user] = await model.getUserByRefreshToken(refreshToken);
         if (!user[0]) return res.sendStatus(403);
@@ -66,7 +71,7 @@ const refreshToken = async(req,res) =>{
             const iduser = user[0].iduser;
             const nmuser = user[0].nmuser;
             const idusergroup = user[0].idusergroup;
-            const accessToken = jwt.sign({iduser,nmuser,idusergroup},process.env.ACCESS_TOKEN,{expiresIn: '1h'});
+            const accessToken = jwt.sign({iduser,nmuser,idusergroup},process.env.ACCESS_TOKEN_SECRET_KEY,{expiresIn: '15s'});
             res.json({accessToken});
         });
     } catch (error) {

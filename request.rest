@@ -3,7 +3,7 @@ get http://localhost:4000/
 
 ###
 get http://localhost:4000/user/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE1MzI2MjIsImV4cCI6MTY4MTUzNjIyMn0.V25L7PZwXtHjdcM8_WtY06KnWyapUVJu8kwK_WV4pvw
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOiI5ODAzOSIsIm5tdXNlciI6IkFndXMgU3VuYXJ0byIsImlkdXNlcmdyb3VwIjoiMTAwOzAwMjswMDQ7MDIwIiwiaWF0IjoxNjgyOTQ3NzExLCJleHAiOjE2ODI5NDc5MTF9.Ix63k26iH7figLmt2q5KuBVrKNQnY3COMbBFYJPP4Jo
 
 ###
 POST http://localhost:4000/login
@@ -17,11 +17,15 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4000/login/getAllUsers
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODE3MDU1ODMsImV4cCI6MTY4MTcwOTE4M30.Rjn_R0isdkoHRNpSHH6676XsUeyUfURNINr41pDuW_s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOiI5ODAzOSIsIm5tdXNlciI6IkFndXMgU3VuYXJ0byIsImlkdXNlcmdyb3VwIjoiMTAwOzAwMjswMDQ7MDIwIiwiaWF0IjoxNjg0MTIzMjQ0LCJleHAiOjE2ODQxMjMyNjR9.A4Lh5DjDVczpsWhOmjY1XbihlkXizQVuTMn-NiRwliw
 
 ###
 GET http://localhost:4000/login/refreshToken
-Content-Type: application/json
+
 
 ###
 DELETE http://localhost:4000/login/logout
+
+
+###
+GET http://localhost:4000/ruangRapat/getRuangRapats
