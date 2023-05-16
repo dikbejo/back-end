@@ -10,7 +10,7 @@ POST http://localhost:4000/login
 Content-Type: application/json
 
 {
-    "iduser":"98039",
+    "iduser":"msib_nisa",
     "password":"123",
     "thang":"2023"
 }
@@ -29,3 +29,14 @@ DELETE http://localhost:4000/login/logout
 
 ###
 GET http://localhost:4000/ruangRapat/getRuangRapats
+
+###
+POST http://localhost:4000/ruangRapat/insertRuangRapat
+Content-Type: application/json
+
+{
+    "data":{
+        "nmrapat":"coba",
+        "letak":"Lantai 201"
+        }
+}

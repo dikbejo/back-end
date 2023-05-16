@@ -17,4 +17,14 @@ const getRuangRapats = async (req, res) => {
         })
     }
 }
-module.exports={getRuangRapats}
+
+const insertRuangRapat = async (req, res) => {
+    const {body} = req;
+    console.log('insertRuangRapat');
+    console.log(body);
+    res.json({
+        msg: 'Insert Ruang Rapat belum jadi',
+ 
+    })
+}
+module.exports={getRuangRapats,insertRuangRapat}

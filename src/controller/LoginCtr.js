@@ -25,7 +25,7 @@ const getAllUsers = async (req, res) => {
 const login = async(req,res) => {
     const {body} = req;
     try {
-        console.log(body);
+        // console.log(body);
         if(!body.iduser) return res.status(400).json({msg: "Gagal Login, isi userid"})
         if(!body.password) return res.status(400).json({msg: "Gagal Login, isi password"})
         if(!body.thang || body.thang.length<4) return res.status(400).json({msg: "Gagal Login, isi Tahun Anggaran"})
