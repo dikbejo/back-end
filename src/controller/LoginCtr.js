@@ -1,15 +1,11 @@
 const jwt = require('jsonwebtoken');
-
-const bcrypt =require("bcrypt");
-
+const bcrypt = require("bcrypt");
 const model = require('../models/LoginModel');
 
 
 const getAllUsers = async (req, res) => {
     try {
-       
         const [data] = await model.getAllUsers();
-
         res.json({
             msg: 'GET all users success',
             data: data
@@ -62,11 +58,14 @@ const login = async(req,res) => {
 const refreshToken = async(req,res) =>{
     try {
         const refreshToken = req.cookies.refreshToken;
-        // console.log('dari refreshtoken, req.cookies : ' + json(req.cookies));
+        console.log('dari refreshtoken, req.cookies : ' + JSON.stringify(req.cookies));
         if (!refreshToken) return res.sendStatus(401);
         const [user] = await model.getUserByRefreshToken(refreshToken);
+       
         if (!user[0]) return res.sendStatus(403);
-        jwt.verify(refreshToken,process.env.REFRESH_TOKEN,(err,decoded) =>{
+  
+        jwt.verify(refreshToken,process.env.REFRESH_TOKEN_SECRET_KEY,(err,decoded) =>{
+            console.log('sampe sini' + err);
             if(err) return res.sendStatus(403);
             const iduser = user[0].iduser;
             const nmuser = user[0].nmuser;

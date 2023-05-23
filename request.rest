@@ -2,8 +2,14 @@
 get http://localhost:4000/
 
 ###
-get http://localhost:4000/user/
-Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZHVzZXIiOiI5ODAzOSIsIm5tdXNlciI6IkFndXMgU3VuYXJ0byIsImlkdXNlcmdyb3VwIjoiMTAwOzAwMjswMDQ7MDIwIiwiaWF0IjoxNjgyOTQ3NzExLCJleHAiOjE2ODI5NDc5MTF9.Ix63k26iH7figLmt2q5KuBVrKNQnY3COMbBFYJPP4Jo
+get http://localhost:4000/user/getUsers
+Authorization: Bearer  
+
+###
+get http://localhost:4000/user/getUserById
+Content-Type: application/json
+
+{"iduser":"msib_dea"}
 
 ###
 POST http://localhost:4000/login
@@ -36,7 +42,62 @@ Content-Type: application/json
 
 {
     "data":{
-        "nmrapat":"coba",
-        "letak":"Lantai 201"
+        "nmrapat":"coba 2",
+        "letak":"P 201",
+        "luas":50,
+        "kapasitas":100
         }
 }
+###
+POST http://localhost:4000/ruangRapat/updateRuangRapat
+Content-Type: application/json
+
+{
+    "data":{
+        "kdrapat":50,
+        "nmrapat":"coba lagi",
+        "letak":"P 201",
+        "luas":50,
+        "fasilitas":"spa",
+        "kapasitas":50
+        }
+}
+###
+POST http://localhost:4000/ruangRapat/deleteRuangRapat
+Content-Type: application/json
+
+{"kdrapat":51}
+
+###
+GET http://localhost:4000/usergroup/getUserGroups
+
+###
+POST http://localhost:4000/usergroup/insertUserGroup
+Content-Type: application/json
+
+{   "data":{
+    "idusergroup":"901",
+    "nmusergroup":"MSIB",
+    "menu":"010000-X;010100-X;010101-X;010102-X;010103-X;010104-X;010200-X;010201-X;010202-X;010300-X;010301-X;010302-X;010400-X;010401-X;010402-X;010403-X;010500-X;010501-X;010502-X;010600-X;010601-X;010602-X;010603-X;010604-X;010605-X;010606-X;010607-X;010700-X;010800-X;010900-X;011000-X;011100-X;011101-X;011102-X;011103-X;011200-X;011300-X;011301-X;011302-X;011303-X;011304-X;020000-X;020100-X;020200-X;020300-X;020400-X;020500-X;020501-X;020600-X;030000-X;040000-X;060000-X;080000-X;090000-X;090100-X;090200-X;100000-X;120000-X;130000-X;140000-X;150000-X;150100-X;150101-X;150102-X;150200-X;070000-R;170000-X;170100-X;170200-X;170300-X;250000-R;250100-R;250200-R;250300-R;250400-R;250500-R;010608-X;300000-X"
+}
+    }
+
+###
+POST http://localhost:4000/usergroup/updateUserGroup
+Content-Type: application/json
+
+{   "data":{
+    "idusergroup":"901",
+    "nmusergroup":"MSIB",
+    "menu":"010000-X;010100-X;010101-X;010102-X;010103-X;010104-X;010200-X;010201-X;010202-X;010300-X;010301-X;010302-X;010400-X;010401-X;010402-X;010403-X;010500-X;010501-X;010502-X;010600-X;010601-X;010602-X;010603-X;010604-X;010605-X;010606-X;010607-X;010700-X;010800-X;010900-X;011000-X;011100-X;011101-X;011102-X;011103-X;011200-X;011300-X;011301-X;011302-X;011303-X;011304-X;020000-X;020100-X;020200-X;020300-X;020400-X;020500-X;020501-X;020600-X;030000-X;040000-X;060000-X;080000-X;090000-X;090100-X;090200-X;100000-X;120000-X;130000-X;140000-X;150000-X;150100-X;150101-X;150102-X;150200-X;070000-R;170000-X;170100-X;170200-X;170300-X;250000-R;250100-R;250200-R;250300-R;250400-R;250500-R;010608-X;300000-X"
+}
+    }
+
+###
+GET http://localhost:4000/user/getUsers
+
+###
+POST http://localhost:4000/user/deleteUser
+Content-Type: application/json
+
+{"iduser":"msib_deaaaaaaa"}

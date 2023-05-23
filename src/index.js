@@ -8,7 +8,7 @@ const pToken = require('./middleware/VerifyToken');
 const cors = require('cors')
 
 const ruangRapatR = require('./routes/RuangRapatr');
-
+const userGroupRouter = require('./routes/usergroupr')
 
 const app = express();
 //use : menerima post,get digunakan utk midleware
@@ -20,6 +20,8 @@ app.use(express.json());
 
 // app.use('/user',pToken.verifyToken,userRouter);
 app.use('/login',loginRouter);
+app.use('/user',userRouter);
+app.use('/usergroup',userGroupRouter);
 app.use('/ruangRapat',ruangRapatR);
 app.get("/",(req,res,next)=>{
     res.send("Hello get..");
