@@ -54,7 +54,7 @@ Content-Type: application/json
 
 {
     "data":{
-        "kdrapat":50,
+        "kdrapat":505,
         "nmrapat":"coba lagi",
         "letak":"P 201",
         "luas":50,

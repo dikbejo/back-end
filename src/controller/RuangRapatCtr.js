@@ -75,7 +75,7 @@ const updateRuangRapat = async(req,res)=>{
         // console.log(data);
         // console.log(data[0].changedRows);
         const msg = data[0];
-        console.log(hasil);
+        // console.log(hasil);
         res.json({
             // msg: 'Update Ruang rapat  success'
             msg
